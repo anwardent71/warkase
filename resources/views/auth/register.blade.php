@@ -19,6 +19,7 @@
     </div>
     <div class="right-column">
         <form class="user" action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
+        {{ csrf_field() }}
             <h1>Buat Akun Yuk !</h1>
             <span>
                 <input type="text" name="nama" id="nama" required autocomplete="off">
@@ -38,7 +39,7 @@
             <span>
                 <input type="file" class="form-control-file" name="gambar" id="gambar">
             </span>
-            <input type="hidden" name="id_level">
+            <input type="hidden" name="id_level" value="1">
             
             <button type="submit" class="btn-daf">Daftar Sekarang</button>
             <a href="{{ url('/login') }}" class="link">Sudah memiliki akun ? Masuk!</a>

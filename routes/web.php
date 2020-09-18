@@ -18,7 +18,7 @@ Route::get('/beranda', function () {
 });
 
 // Auth
-Route::get('/login', 'AuthController@loginin');
+Route::get('/login', 'AuthController@loginin')->name('logi');
 Route::post('/proses-login', 'AuthController@Proseslogin')->name('login');
 Route::get('/register', 'AuthController@register')->name('regis');
 Route::post('/proses-register', 'AuthController@ProsesRegister')->name('register');

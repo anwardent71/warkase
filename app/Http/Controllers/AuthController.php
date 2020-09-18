@@ -34,7 +34,7 @@ class AuthController extends Controller
         $validateData = $request->validate([
             'nama' => 'required|min:3',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:5',
+            'password' => 'required|min:3',
             'id_level' => 'required',
             'gambar' => 'required',
         ]);
@@ -52,7 +52,7 @@ class AuthController extends Controller
         }
         $reg->save();
 
-        return redirect()->url('/login')->with('pesanBerhasil', "Selamat! Akun {$validateData ['nama']} Kamu, berhasil  Di Buat!");
+        return redirect()->route('logi')->with('pesanBerhasil', "Selamat! Akun Bernama {$validateData ['nama']} Sudah berhasil  Di Buat!");
     }
 
     public function logout(Request $request) 
