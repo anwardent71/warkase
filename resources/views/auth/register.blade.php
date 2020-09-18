@@ -2,91 +2,52 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WarKaSe | Pendaftaran</title>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>WarKaSe - Pendaftaran</title>
-
-    <!-- Custom fonts for this template-->
+    <!-- FontAwesome CDN -->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
 
-    <!-- Custom styles for this template-->
-    <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
-
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/css/auth.css') }}" type="text/css">
 </head>
 
-<body class="bg-gradient-primary">
-
-    <div class="container">
-
-        <div class="card o-hidden border-0 shadow-lg my-5">
-            <div class="card-body p-0">
-                <!-- Nested Row within Card Body -->
-                <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-                    <div class="col-lg-7">
-                        <div class="p-5">
-                            <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Ayo Buat Akun!</h1>
-                            </div>
-                            <form class="user" action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
-                            {{ csrf_field() }}
-                              @if(session()->has('pesanBerhasil'))
-                                <div class="alert alert-success">{{ session()->get('pesanBerhasil') }}</div>
-                              @endif
-                              @if(session()->has('pesanGagal'))
-                                <div class="alert alert-danger">{{ session()->get('pesanGagal') }}</div>
-                              @endif
-                                <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" name="nama" id="nama"
-                                        placeholder="Nama Lengkap">
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" name="email" id="email"
-                                        placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control form-control-user" name="password"
-                                        id="password" placeholder="Kata Sandi">
-                                </div>
-                                <div class="form-group">
-                                    <input type="file" class="form-control-file" name="gambar" id="gambar">
-                                </div>
-                                <input type="hidden" name="id_level" value="1">
-                                <button type="submit" class="btn btn-primary">Daftar Sekarang</button>
-                                <hr>
-                                <div class="text-center">
-                                    <a class="small" href="">Lupa Password?</a>
-                                </div>
-                                <div class="text-center">
-                                    <a class="small" href="{{ url('/login') }}">Sudah Memiliki Akun ? Masuk!</a>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+<body>
+    <div class="left-column">
+        <img src="../assets/image/register/personalinfo.svg" alt="Gambar Vectornya seharusnya">
+    </div>
+    <div class="right-column">
+        <form class="user" action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
+            <h1>Buat Akun Yuk !</h1>
+            <span>
+                <input type="text" name="nama" id="nama" required autocomplete="off">
+                <p>Nama Lengkap</p>
+                <label for="name"><i class="fas fa-user"></i></label>
+            </span>
+            <span>
+                <input type="email" name="email" id="email" required autocomplete="off">
+                <p>Email</p>
+                <label for="email"><i class="fas fa-envelope"></i></label>
+            </span>
+            <span>
+                <input type="password" name="password" id="password" required>
+                <p>Kata Sandi</p>
+                <label for="kata sandi"><i class="fas fa-lock"></i></label>
+            </span>
+            <span>
+                <input type="file" class="form-control-file" name="gambar" id="gambar">
+            </span>
+            <input type="hidden" name="id_level">
+            
+            <button type="submit" class="btn-daf">Daftar Sekarang</button>
+            <a href="{{ url('/login') }}" class="link">Sudah memiliki akun ? Masuk!</a>
+        </form>
     </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="{[ asset('vendor/jquery/jquery.min.js') ]}"></script>
-    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
-
+    <!-- Dark Mode JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script src="{{ asset('assets/js/dark.js') }}"></script>
 </body>
 
 </html>
